@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Scoops - Delicious Ice Cream</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      color: #4a3c31;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #ff6f91;
+      padding: 25px 15px;
+      text-align: center;
+      color: white;
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px #b3475a;
+      box-shadow: 0 4px 10px rgba(255,111,145,0.6);
+      user-select: none;
+    }
+
+    nav {
+      background-color: #fff3f5;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      gap: 40px;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(255,111,145,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d9435e;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+      padding-bottom: 3px;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #ff6f91;
+      border-bottom: 3px solid #ff6f91;
+      outline: none;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1505253210343-564b9f6b18b2?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.8rem;
+      font-family: 'Pacifico', cursive;
+      text-shadow: 3px 3px 12px #3b1e22;
+      text-align: center;
+      padding: 0 20px;
+      user-select: none;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 1100px;
+      margin: 50px auto 80px;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #d9435e;
+      text-shadow: 1px 1px 3px #ffbbc2;
+    }
+
+    .flavors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 35px;
+    }
+
+    .flavor-card {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 12px 25px rgba(255,111,145,0.3);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 25px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .flavor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 30px rgba(255,111,145,0.5);
+    }
+
+    .flavor-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 5px solid #ff6f91;
+      border-radius: 18px 18px 0 0;
+      transition: transform 0.4s ease;
+    }
+
+    .flavor-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .flavor-card h3 {
+      margin: 20px 0 12px;
+      font-weight: 700;
+      color: #d9435e;
+      font-size: 1.5rem;
+    }
+
+    .flavor-card p {
+      color: #6b4a4a;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      padding: 0 15px;
+      user-select: text;
+    }
+
+    section#about {
+      margin-top: 70px;
+      background: #fff3f5;
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(255,111,145,0.15);
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #5a3a3a;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      user-select: text;
+    }
+
+    section#about h2 {
+      color: #d9435e;
+      text-shadow: none;
+      margin-bottom: 25px;
+    }
+
+    section#contact {
+      margin-top: 70px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #6b4a4a;
+      user-select: text;
+    }
+
+    section#contact h2 {
+      color: #d9435e;
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    section#contact p {
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #d9435e;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1.1px;
+      user-select: none;
+      box-shadow: 0 -3px 15px rgba(217,68,94,0.7);
+    }
+
+    @media (max-width: 480px) {
+      header {
+        font-size: 2.2rem;
+      }
+      nav {
+        gap: 20px;
+        font-size: 1rem;
+      }
+      .hero {
+        font-size: 2.5rem;
+        height: 320px;
+      }
+      .flavors {
+        grid-template-columns: 1fr;
+      }
+      .flavor-card {
+        margin: 0 auto;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Sweet Scoops</header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#flavors">Flavors</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    Delight in Every Scoop!
+  </section>
+
+  <main>
+    <section id="flavors">
+      <h2>Our Popular Flavors</h2>
+      <div class="flavors">
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1505253210343-564b9f6b18b2?auto=format&fit=crop&w=400&q=80" alt="Vanilla Ice Cream" />
+          <h3>Classic Vanilla</h3>
+          <p>Rich and creamy vanilla made with real Madagascar vanilla beans.</p>
+        </div>
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1561043433-aaf687c4cf4f?auto=format&fit=crop&w=400&q=80" alt="Strawberry Ice Cream" />
+          <h3>Strawberry Bliss</h3>
+          <p>Fresh strawberries blended into smooth, sweet ice cream.</p>
+        </div>
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Chocolate Ice Cream" />
+          <h3>Choco Dream</h3>
+          <p>Decadent dark chocolate ice cream for true chocolate lovers.</p>
+        </div>
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1563805042-7684e78f495a?auto=format&fit=crop&w=400&q=80" alt="Mint Chocolate Chip Ice Cream" />
+          <h3>Mint Chip</h3>
+          <p>Refreshing mint ice cream dotted with rich chocolate chips.</p>
+        </div>
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80" alt="Mango Ice Cream" />
+          <h3>Tropical Mango</h3>
+          <p>Sweet mango flavor with a creamy texture to brighten your day.</p>
+        </div>
+        <div class="flavor-card" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1575850548621-1e0a89b2f1e6?auto=format&fit=crop&w=400&q=80" alt="Cookies and Cream Ice Cream" />
+          <h3>Cookies & Cream</h3>
+          <p>Creamy vanilla base with chunks of chocolate cookies for crunch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Sweet Scoops</h2>
+      <p>
+        At Sweet Scoops, we bring joy to your taste buds with handcrafted ice cream made from the freshest, natural ingredients. Our flavors are carefully crafted to give you the ultimate indulgence experience. Whether it's a classic or a new creation, every scoop is filled with love and passion. Come visit us and find your new favorite flavor today!
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>📍 123 Ice Cream Lane, Sweet City, SC 12345</p>
+      <p>📧 contact@sweetscoops.com | 📞 (123) 456-7890</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sweet Scoops Ice Cream Shop. All Rights Reserved.
+  </footer>
+</body>
+</html>
